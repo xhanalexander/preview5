@@ -4,12 +4,12 @@ let cx, cy;
 let gif;
 
 function preload(){
-   gif = loadImage('img.gif')
+   gif = loadImage('img2.gif')
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(150);
+  background(0);
   
   cx = width/2;
   cy = height/2;
@@ -70,6 +70,5 @@ function draw() {
 
   imageMode(CENTER);
   image(gif, cx, cy)
-//   ellipse(cx, cy, 200, 200);
   
 }
