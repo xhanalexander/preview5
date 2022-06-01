@@ -21,7 +21,7 @@ function setup() {
     DeviceOrientationEvent.requestPermission()
       .catch(() => {
         // show permission dialog only the first time
-        let button = createButton("click to allow access to sensors");
+        let button = createButton("click to allow access to gyro sensors");
         button.style("font-size", "24px");
         button.center();
         button.mousePressed( requestAccess );
