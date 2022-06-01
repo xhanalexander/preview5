@@ -4,7 +4,7 @@ let cx, cy;
 let gif;
 
 function preload(){
-   gif = loadImage('img2.gif')
+   gif = loadImage('img.gif')
 }
 
 function setup() {
@@ -53,10 +53,12 @@ function requestAccess() {
   this.remove();
 }
 
+function windowResized() {
+   resizeCanvas(windowWidth, windowHeight);
+}
+
 function draw() {
   if (!permissionGranted) return;
-  
-  
   
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
@@ -65,7 +67,8 @@ function draw() {
   cy += dy*2;
   cx = constrain(cx, 0, width);
   cy = constrain(cy, 0, height);
-  
+
+  imageMode(CENTER);
   image(gif, cx, cy)
 //   ellipse(cx, cy, 200, 200);
   
