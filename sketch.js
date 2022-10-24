@@ -63,7 +63,7 @@ function draw() {
   if (!permissionGranted) return;
 
    // trails effect
-   //   background(0, 10)
+   background(0, 10)
 
    var x = map(noise(xoff), 0, 1, 0, width);
    var y = map(noise(yoff), 0, 1, 0, height);
