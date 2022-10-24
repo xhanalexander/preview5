@@ -2,6 +2,8 @@
 let permissionGranted = false;
 let cx, cy;
 let gif;
+var xoff = 0;
+var yoff = 0;
 
 function preload(){
    gif = loadImage('img2.gif')
@@ -9,7 +11,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
+//   background(0);
   
   cx = width/2;
   cy = height/2;
@@ -59,6 +61,15 @@ function windowResized() {
 
 function draw() {
   if (!permissionGranted) return;
+
+   // trails effect
+   //   background(0, 10)
+
+   var x = map(noise(xoff), 0, 1, 0, width);
+   var y = map(noise(yoff), 0, 1, 0, height);
+
+   xoff += 0.01;
+   yoff += 0.01;
   
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
@@ -69,6 +80,6 @@ function draw() {
   cy = constrain(cy, 0, height);
 
   imageMode(CENTER);
-  image(gif, cx, cy)
+  image(gif, cx, cy, x, y)
   
 }
